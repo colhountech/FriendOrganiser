@@ -1,5 +1,6 @@
 ﻿using FO.Model;
 using System.Data.Entity;
+using System.Data.Entity.ModelConfiguration;
 using System.Data.Entity.ModelConfiguration.Conventions;
 
 namespace FO.DA
@@ -32,6 +33,26 @@ namespace FO.DA
             // to prevent pluralizing Table Names, keep singular tables
             // remove a convension
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
+
+            // Fluent API - IF not using [DataAnnotations]
+            //modelBuilder.Entity<Friend>()
+            //.Property((f => f.Firstname))
+            //.IsRequired()
+            //.HasMaxLength(50);
+            // 
+            // Move to FriendConfiguration
+            //modelBuilder.Configurations.Add(new FriendConfiguration());
+
+
+        }
+    }
+    public class FriendConfiguration : EntityTypeConfiguration<Friend>
+    {
+        public FriendConfiguration()
+        {
+            Property((f => f.Firstname))
+            .IsRequired()
+            .HasMaxLength(50);
         }
     }
 }

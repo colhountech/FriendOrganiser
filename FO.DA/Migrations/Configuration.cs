@@ -21,11 +21,11 @@
             // 2nd param are the entities to insert
             context.Friends.AddOrUpdate(
                 f => f.Firstname,
-                new Friend { Firstname = "1sdfas", Lastname = "asdfasfd" },
-                new Friend { Firstname = "2sdfas", Lastname = "asdfasfd" },
-                new Friend { Firstname = "3sdfas", Lastname = "asdfasfd" },
-                new Friend { Firstname = "4sdfas", Lastname = "asdfasfd" },
-                new Friend { Firstname = "5sdfas", Lastname = "asdfasfd" }
+                new Friend { Firstname = "1sdfas", Lastname = "Database" },
+                new Friend { Firstname = "2sdfas", Lastname = "Database" },
+                new Friend { Firstname = "3sdfas", Lastname = "Database" },
+                new Friend { Firstname = "4sdfas", Lastname = "Database" },
+                new Friend { Firstname = "5sdfas", Lastname = "Database" }
                 );
             // Now open Tools > Nuget Package Manager > Package Manager Console and enter
             // Add-Migrations [name-of-migration]

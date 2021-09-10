@@ -1,4 +1,5 @@
-﻿using FO.Model;
+﻿using FO.DA;
+using FO.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,11 +12,10 @@ namespace FO.UI.Data
     {
         public IEnumerable<Friend> GetAll()
         {
-            yield return new Friend { Firstname = "1sdfas", Lastname = "asdfasfd" };
-            yield return new Friend { Firstname = "2sdfas", Lastname = "asdfasfd" };
-            yield return new Friend { Firstname = "3sdfas", Lastname = "asdfasfd" };
-            yield return new Friend { Firstname = "4sdfas", Lastname = "asdfasfd" };
-            yield return new Friend { Firstname = "5sdfas", Lastname = "asdfasfd" };
+            using (var ctx = new FO_DBContext())
+            {
+                return ctx.Friends.AsNoTracking().ToList();
+            }
 
         }
     }
