@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FO.UI.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,14 +16,25 @@ using System.Windows.Shapes;
 
 namespace FO.UI
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
+   
     public partial class MainWindow : Window
     {
-        public MainWindow()
+        private MainViewModel _vm;
+
+        public MainWindow(MainViewModel vm)
         {
+            
             InitializeComponent();
+            _vm = vm;
+            DataContext = _vm;
+            //DataContext = vm;
+            //vm.Load(); don't do this.
+            Loaded += MainWindow_Loaded;
+        }
+
+        private void MainWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+            _vm.Load();
         }
     }
 }
