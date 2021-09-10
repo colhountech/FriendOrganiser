@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FO.UI"
         mc:Ignorable="d"
-        Title="FriendOrganised" Height="350" Width="525" FontSize="20">
+        Title="FriendOrganised" Height="350" Width="525" FontSize="20" >
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="200" />
@@ -23,18 +23,16 @@
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
-                <RowDefinition Height="*" /> <!-- default is * for left over -->
+                <RowDefinition Height="*" /> 
             </Grid.RowDefinitions>
             <Label Content="Firstname" Margin="10 10 10 0" />
-            <TextBlock Grid.Row="1" Text="{Binding SelectedFriend.Firstname,
+            <TextBox Grid.Row="1" Text="{Binding SelectedFriend.Firstname,
                 Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Margin="10 0 10 10" />
-            <!-- by default Update Source Trigger On LostFocus -->
             <Label Grid.Row="2" Content="Lastname" Margin="10 0" />
-             <!-- Margin="10 0" is same as Margin "10 0 0 0"-->
-            <TextBlock Grid.Row="3" Text="{Binding SelectedFriend.Lastname,
+            <TextBox Grid.Row="3" Text="{Binding SelectedFriend.Lastname,
                 Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Margin="10 0 10 10" />
             <Label Grid.Row="4" Content="Email" Margin="10 0" />
-            <TextBlock Grid.Row="5" Text="{Binding SelectedFriend.Email,
+            <TextBox Grid.Row="5" Text="{Binding SelectedFriend.Email,
                 Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Margin="10 0 10 10" />
         </Grid>
 
