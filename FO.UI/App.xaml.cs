@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FO.UI.Data;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -13,5 +14,13 @@ namespace FO.UI
     /// </summary>
     public partial class App : Application
     {
+        private void Application_Startup(object sender, StartupEventArgs e)
+        {
+            var mainWindows = new MainWindow(
+                new ViewModel.MainViewModel(
+                    new FriendDataService()));
+            mainWindows.Show();
+
+        }
     }
 }
