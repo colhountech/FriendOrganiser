@@ -12,7 +12,7 @@ namespace FO.UI.ViewModel
         public MainViewModel(IFriendDataService friendDataService)
         {
             _friendDataService = friendDataService;
-            Friends = new ObservableCollection<Friend>();
+            Friends = new ObservableCollection<Friend>();           
         }
 
         public void Load()
@@ -34,11 +34,8 @@ namespace FO.UI.ViewModel
             }
             set
             {
-                _selectedFriend = value;
-                //OnPropertyChagned("SelectedFriend")); 
-                //OnPropertyChagned(nameof(SelectedFriend)); // C# 6, instead of "SelectedFriend"
-                //OnPropertyChagned(); // using [CallerMemberName] string propertyName = null
-                OnPropertyChagned();  // and also move OnPropertyChagned to Base Class ViewModelBase
+                _selectedFriend = value;            
+                OnPropertyChagned();
             }
         }
     }
